@@ -10,7 +10,7 @@ const covid19ImpactEstimator = (data) => {
   const impact = {};
   const severeImpact = {};
 
-  // Challenge 1
+  // Challenge 1 Complete
   const calculateLockDownDays = () => {
     switch (periodType) {
       case 'months':
