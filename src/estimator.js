@@ -25,7 +25,7 @@ const covid19ImpactEstimator = (data) => {
   const lockDownDays = calculateLockDownDays();
   const factor = Math.floor(lockDownDays / 3);
 
-  const calculateInfectionByTime = (infected) => infected * (2 ** factor);
+  const calculateInfectionByTime = (infected) => Math.floor(infected * (2 ** factor));
 
   impact.currentlyInfected = reportedCases * 10;
   severeImpact.currentlyInfected = reportedCases * 50;
@@ -84,7 +84,7 @@ const covid19ImpactEstimator = (data) => {
 //         avgDailyIncomePopulation: 0.71
 //     },
 //     periodType: 'days',
-//     timeToElapse: 60,
+//     timeToElapse: 58,
 //     reportedCases: 674,
 //     population: 66622705,
 //     totalHospitalBeds: 1380614
@@ -97,7 +97,7 @@ const covid19ImpactEstimator = (data) => {
 //         avgDailyIncomePopulation: 0.71
 //     },
 //     periodType: 'weeks',
-//     timeToElapse: 8.571428571,
+//     timeToElapse: 8.2857142857142857142857142857143‬,
 //     reportedCases: 674,
 //     population: 66622705,
 //     totalHospitalBeds: 1380614
@@ -110,7 +110,7 @@ const covid19ImpactEstimator = (data) => {
 //         avgDailyIncomePopulation: 0.71
 //     },
 //     periodType: 'months',
-//     timeToElapse: 0.35,
+//     timeToElapse: 0.27619047619047619047619047619048‬,
 //     reportedCases: 674,
 //     population: 66622705,
 //     totalHospitalBeds: 1380614
