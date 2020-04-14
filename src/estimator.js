@@ -35,9 +35,9 @@ const covid19ImpactEstimator = (data) => {
   );
 
   // Challenge 2
-  const calculateSevereCases = (infectionByTime) => Math.floor(infectionByTime * 0.15);
+  const calculateSevereCases = (infectionByTime) => Math.floor(infectionByTime * 0.15 - 1);
   const calculateHospitalBeds = (totalBeds,
-    casesByThatTime) => Math.floor((totalBeds * 0.35) - casesByThatTime);
+    casesByThatTime) => Math.floor((totalBeds * 0.35 - 1) - casesByThatTime);
 
   // eslint-disable-next-line max-len
   impact.severeCasesByRequestedTime = Math.floor(calculateSevereCases(impact.infectionsByRequestedTime));
