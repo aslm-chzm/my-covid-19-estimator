@@ -35,19 +35,20 @@ const covid19ImpactEstimator = (data) => {
   );
 
   // Challenge 2
-  const calculateSevereCases = (infectionByTime) => Math.floor(infectionByTime * 0.15 - 1);
+  const calculateSevereCases = (infectionByTime) => infectionByTime * 0.15;
   const calculateHospitalBeds = (totalBeds,
-    casesByThatTime) => Math.floor((totalBeds * 0.35 - 1) - casesByThatTime);
+    casesByThatTime) => (totalBeds * 0.35) - casesByThatTime;
 
-  impact.severeCasesByRequestedTime = calculateSevereCases(impact.infectionsByRequestedTime);
-  severeImpact.severeCasesByRequestedTime = calculateSevereCases(
+  // eslint-disable-next-line max-len
+  impact.severeCasesByRequestedTime = Math.floor(calculateSevereCases(impact.infectionsByRequestedTime));
+  severeImpact.severeCasesByRequestedTime = Math.floor(calculateSevereCases(
     severeImpact.infectionsByRequestedTime
-  );
+  ));
 
-  impact.hospitalBedsByRequestedTime = calculateHospitalBeds(totalHospitalBeds,
-    impact.severeCasesByRequestedTime);
-  severeImpact.hospitalBedsByRequestedTime = calculateHospitalBeds(totalHospitalBeds,
-    severeImpact.severeCasesByRequestedTime);
+  impact.hospitalBedsByRequestedTime = Math.floor(calculateHospitalBeds(totalHospitalBeds,
+    impact.severeCasesByRequestedTime));
+  severeImpact.hospitalBedsByRequestedTime = Math.floor(calculateHospitalBeds(totalHospitalBeds,
+    severeImpact.severeCasesByRequestedTime));
 
   // Challenge 3
   function calculateEconomyLoss(casesByThatTime) {
