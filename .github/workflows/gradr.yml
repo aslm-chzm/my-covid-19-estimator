@@ -6,7 +6,7 @@ on:
     - master
 
 jobs:
-  lint:
+  lint: 
     name: audit code style
     runs-on: macos-latest
 
@@ -25,7 +25,7 @@ jobs:
 
     - name: Install Deps
       run: yarn add eslint@^6.8.0 eslint-plugin-import@^2.20.1 eslint-config-airbnb-base@^14.0.0
-
+        
     - name: Run Audits
       run: yarn eslint ./src/
 
@@ -51,10 +51,10 @@ jobs:
       run: |
         yarn install
         yarn add jest axios xml2json @babel/core @babel/preset-env babel-jest @actions/core @actions/github
-
+    
     - name: Prepare Audits
       uses: actions/checkout@v2
-      with:
+      with: 
         repository: BuildforSDG-Cohort1-Assessment/covid-19-estimator-audits-js
         path: audits
 
@@ -67,7 +67,7 @@ jobs:
         challenge: ch-1
         lang: javascript
       if: always()
-
+  
   ch-2:
     needs: ch-1
     name: audit challenge 2
@@ -90,10 +90,10 @@ jobs:
       run: |
         yarn install
         yarn add jest axios xml2json @babel/core @babel/preset-env babel-jest @actions/core @actions/github
-
+    
     - name: Prepare Audits
       uses: actions/checkout@v2
-      with:
+      with: 
         repository: BuildforSDG-Cohort1-Assessment/covid-19-estimator-audits-js
         path: audits
 
@@ -127,10 +127,10 @@ jobs:
 
     - name: Install Deps
       run: yarn add jest axios xml2json @babel/core @babel/preset-env babel-jest @actions/core @actions/github
-
+    
     - name: Prepare Audits
       uses: actions/checkout@v2
-      with:
+      with: 
         repository: BuildforSDG-Cohort1-Assessment/covid-19-estimator-audits-js
         path: audits
 
@@ -143,8 +143,8 @@ jobs:
         challenge: ch-3
         lang: javascript
       if: always()
-
-
+ 
+ 
   lighthouse:
     needs: ch-3
     name: audit frontend app (lighthouse)
@@ -168,24 +168,24 @@ jobs:
 
     - name: Prepare Audits
       uses: actions/checkout@v2
-      with:
+      with: 
         repository: BuildforSDG-Cohort1-Assessment/covid-19-estimator-audits-js
         path: audits
-
+    
     - name: Injest Frontend App URL
       id: props
       uses: chalu/properties-io@v1
       with:
         file: ./app.properties
         read-from: frontend.url
-
+    
     - name: Run Audits
       run: npx lhci autorun --collect.url=${{ steps.props.outputs.value }} --config=./audits/lighthouserc.json
-
+    
     - name: Report Audits
       uses: BuildforSDG-Cohort1-Assessment/lighthouse-out@v1
       if: always()
-
+  
   ch-4:
     needs: lighthouse
     name: audit frontend UI
@@ -209,7 +209,7 @@ jobs:
 
     - name: Prepare Audits
       uses: actions/checkout@v2
-      with:
+      with: 
         repository: BuildforSDG-Cohort1-Assessment/covid-19-estimator-audits-js
         path: audits
 
@@ -246,7 +246,7 @@ jobs:
 
     - name: Prepare Audits
       uses: actions/checkout@v2
-      with:
+      with: 
         repository: BuildforSDG-Cohort1-Assessment/covid-19-estimator-audits-js
         path: audits
 

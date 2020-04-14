@@ -45,10 +45,9 @@ const covid19ImpactEstimator = (data) => {
     severeImpact.infectionsByRequestedTime
   ));
 
-  impact.hospitalBedsByRequestedTime = Math.floor(calculateHospitalBeds(impact.totalHospitalBeds,
+  impact.hospitalBedsByRequestedTime = Math.floor(calculateHospitalBeds(totalHospitalBeds,
     impact.severeCasesByRequestedTime));
-  // eslint-disable-next-line max-len
-  severeImpact.hospitalBedsByRequestedTime = Math.floor(calculateHospitalBeds(severeImpact.totalHospitalBeds,
+  severeImpact.hospitalBedsByRequestedTime = Math.floor(calculateHospitalBeds(totalHospitalBeds,
     severeImpact.severeCasesByRequestedTime));
 
   // Challenge 3
