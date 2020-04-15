@@ -45,7 +45,7 @@ const covid19ImpactEstimator = (data) => {
   let dollarsInFlight = Math.trunc(infectionsByRequestedTime
                 * avgDailyIncomeInUSD
                 * avgDailyIncomePopulation
-                * convertTimeToDays(timeToElapse, periodType)
+                / convertTimeToDays(timeToElapse, periodType)
   );
 
   const impact = {
@@ -68,7 +68,7 @@ const covid19ImpactEstimator = (data) => {
   dollarsInFlight = Math.trunc (infectionsByRequestedTime
                 * avgDailyIncomeInUSD
                 * avgDailyIncomePopulation
-                * convertTimeToDays(timeToElapse, periodType)
+                / convertTimeToDays(timeToElapse, periodType)
   );
 
   const severeImpact = {
